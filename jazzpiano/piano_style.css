@@ -1,0 +1,54 @@
+/*----------------------------------------------------------------------------------------------
+Author: Madison Federin-Easley
+Date: 1/19/2021
+Revision no. 5.0
+------------------------------------------------------------------------------------------------*/
+
+body {font-family: Helvetica, Arial, sans-serif; background-color: #6e98b9;
+    /* text-size-adjust for displaying on mobile devices */
+    text-size-adjust: none; -webkit-text-size-adjust: none;}
+
+/* Buttons are automatically inline-block, word-wrap makes the letters fit on the button, font-size can be adjusted */
+button {display: inline-block; white-space: normal; word-wrap: break-word; font-size: 0.75em;
+    /* Buttons rounded and shadows added/removed when clicked */
+    border-radius: 10px; border: 2px solid #000; box-shadow: 0px 1.5px 1.5px rgb(63, 63, 63);
+    vertical-align: middle; margin: 0; height: 2.5em; background-color:#ccc;}
+    button:focus {outline: none; box-shadow: 0px 0px 0px rgb(63, 63, 63);}
+        /* Buttons sized larger for extensions and scales */
+        #additional button, #scales button {width: 4em; height: 3em;}
+
+        /* Extra left margin needed for the keyboards because they have negative margins */
+         #upperkeys, #lowerkeys {margin-left: 1em;}
+
+    /* Can put extensions and scales next to each other with the below code
+     div {float: left; margin: 0 1em 2em 0;}*/
+
+    /* Sets black and white key colors, sizes, buttons float left */
+    .blackkey {display: block; float: left; width: 3em; height: 9em; color: white;
+        /* Black keys all have negative margin to cover white keys next to them */
+        padding: 0.1em 0.2em; position: relative; margin: 0 0 0 -1.5em; z-index: 2;
+        /* From CSS Piano by zastrow https://codepen.io/zastrow/pen/oDBki */
+        border: 1px solid #000; border-radius:0 0 3px 3px;
+        box-shadow:-1px 0 0 rgba(255,255,255,0.1) inset,0 -5px 2px 3px rgba(0,0,0,0.6) inset,0 2px 4px rgba(0,0,0,0.5);
+        background:linear-gradient(45deg,#222 0%,rgb(63, 63, 63) 100%);}
+
+    /* White keys are ~twice as large as black keys to allow overlap*/
+    .whitekey {display: block; float: left;  width: 4em; height: 16em; color: black;
+        padding: 4em 0.75em 0 0.75em; position: relative; z-index: 1;
+        /* From CSS Piano by zastrow https://codepen.io/zastrow/pen/oDBki */
+        border: 1px solid #000; border-radius:0 0 5px 5px;
+        box-shadow:-1px 2px 2px rgba(255,255,255,0.8) inset,0 0 5px #ccc inset,0 0 3px rgba(0,0,0,0.2);
+        background:linear-gradient(to bottom,#eee 0%,#fff 100%);}
+
+        /* Different margins needed for different white keys for black keys to correctly overlap */
+        .Anote, .Gnote, .Fnote, .Dnote, .Cnote {margin: 0 0 0.75em -1.5em;}
+        .Enote, .Bnote {margin: 0 1.5em 0.75em -1.5em;}
+
+    /* Since upper and lower keyboard use float, h2 and reset button must clear floats */
+    h2 {clear: both;}
+    #reset {display: block; clear: both;}
+
+        /* Classes to add when a root, extension, scale is chosen */
+        .ext {color: #ff0000;}
+        .scl {color: #c71585; font-weight: bolder;}
+        .root {color: #008d00;}

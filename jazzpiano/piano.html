@@ -1,0 +1,119 @@
+<!--********************************************************************************************
+Author: Madison Federin-Easley
+Date: 1/19/2021
+Revision no. 5.0
+*********************************************************************************************-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jazz Piano Chord Analyzer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+        <link href="piano_style.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1>Jazz Piano Chord Analyzer</h1>
+            <h3>--------Chord Root--------</h3>
+            <form id="upperkeys">
+        <!--All buttons have id (what note they are), class (white or black key), value (C=1 and so forth), and call function to show root on lower keyboard-->
+                <button type="button" id="C" class="whitekey Cnote" value="1" onclick="chooseRoot(this.value);">C</button><!--
+                --><button type="button" id="CsDb" class="blackkey" value="2" onclick="chooseRoot(this.value);">C&#x266f;<br>D&#x266d;</button><!--
+                --><button type="button" id="D" class="whitekey Dnote" value="3" onclick="chooseRoot(this.value);">D</button><!--
+                --><button type="button" id="DsEb" class="blackkey" value="4" onclick="chooseRoot(this.value);">D&#x266f;<br>E&#x266d;</button><!--
+                --><button type="button" id="E" class="whitekey Enote" value="5" onclick="chooseRoot(this.value);">E</button><!--
+                --><button type="button" id="F" class="whitekey Fnote" value="6" onclick="chooseRoot(this.value);">F</button><!--
+                --><button type="button" id="FsGb" class="blackkey" value="7" onclick="chooseRoot(this.value);">F&#x266f;<br>G&#x266d;</button><!--
+                --><button type="button" id="G" class="whitekey Gnote" value="8" onclick="chooseRoot(this.value);">G</button><!--
+                --><button type="button" id="GsAb" class="blackkey" value="9" onclick="chooseRoot(this.value);">G&#x266f;<br>A&#x266d;</button><!--
+                --><button type="button" id="A" class="whitekey Anote" value="10" onclick="chooseRoot(this.value);">A</button><!--
+                --><button type="button" id="AsBb" class="blackkey" value="11" onclick="chooseRoot(this.value);">A&#x266f;<br>B&#x266d;</button><!--
+                --><button type="button" id="B" class="whitekey Bnote" value="12" onclick="chooseRoot(this.value);">B</button>
+            </form>
+        <!--Resets the page so user can pick a new root-->
+        <br><button id="reset" type="reset" onclick="resetPage();">Reset Root</button>
+
+        <div>
+        <h3>--------Extension--------</h3>
+            <form id="additional">
+        <!--All buttons have id (the extention), the value (how many steps from the root), and call function to show extension on lower keyboard-->
+                <button type="button" id="min3" value="3" onclick="chooseExtension(this.value, this.id);">min3</button>
+                <button type="button" id="maj3" value="4" onclick="chooseExtension(this.value, this.id);">maj3</button>
+                <button type="button" id="b5" value="6" onclick="chooseExtension(this.value, this.id);">&#x266d;5</button>
+                <button type="button" id="#5" value="8" onclick="chooseExtension(this.value, this.id);">&#x266f;5</button>
+                <button type="button" id="6" value="9" onclick="chooseExtension(this.value, this.id);"> 6 </button>
+                <button type="button" id="b7" value="10" onclick="chooseExtension(this.value, this.id);">&#x266d;7</button>
+                <button type="button" id="maj7" value="11" onclick="chooseExtension(this.value, this.id);">maj7</button>
+                <button type="button" id="b9" value="13" onclick="chooseExtension(this.value, this.id);">&#x266d;9</button>
+                <button type="button" id="9" value="14" onclick="chooseExtension(this.value, this.id);"> 9 </button>
+                <button type="button" id="#9" value="15" onclick="chooseExtension(this.value, this.id);">&#x266f;9</button>
+                <button type="button" id="11" value="17" onclick="chooseExtension(this.value, this.id);"> 11 </button>
+                <button type="button" id="#11" value="18" onclick="chooseExtension(this.value, this.id);">&#x266f;11</button>
+                <button type="button" id="b13" value="20" onclick="chooseExtension(this.value, this.id);">&#x266d;13</button>
+                <button type="button" id="13" value="21" onclick="chooseExtension(this.value, this.id);"> 13 </button>
+            </form>
+        </div>
+        <div>
+            <h3>--------Scales--------------------------------------------------Modes--------</h3>
+            <form id="scales">
+                <button type="button" id="major" value="major" onclick="chooseScale(this.value);">Major</button>
+                <button type="button" id="nmin" value="nmin" onclick="chooseScale(this.value);">NMin</button>
+                <button type="button" id="hmin" value="hmin" onclick="chooseScale(this.value);">HMin</button>
+                <button type="button" id="mmin" value="mmin" onclick="chooseScale(this.value);">MMin</button>
+                <button type="button" id="wh" value="wh" onclick="chooseScale(this.value);">WH</button>
+                <button type="button" id="hw" value="hw" onclick="chooseScale(this.value);">HW</button>
+                <button type="button" id="wt" value="wt" onclick="chooseScale(this.value);">WT</button>
+                <button type="button" id="alt" value="alt" onclick="chooseScale(this.value);">Alt</button>
+                <button type="button" id="dor" value="dor" onclick="chooseScale(this.value);">Dor</button>
+                <button type="button" id="phr" value="phr" onclick="chooseScale(this.value);">Phr</button>
+                <button type="button" id="lyd" value="lyd" onclick="chooseScale(this.value);">Lyd</button>
+                <button type="button" id="mix" value="mix" onclick="chooseScale(this.value);">Mix</button>
+                <button type="button" id="aeo" value="aeo" onclick="chooseScale(this.value);">Aeo</button>
+                <button type="button" id="loc" value="loc" onclick="chooseScale(this.value);">Loc</button>
+            </form>
+        </div>
+
+        <h3>--------Keyboard Display--------</h3>
+            <form id="lowerkeys">
+        <!--Keyboard for displaying roots and extensions chosen above, same styling as upper keyboard-->
+            <button id="lowC" class="whitekey Cnote" value="1">C</button><!--
+            --><button id="lowCsDb" class="blackkey" value="2">C&#x266f;<br>D&#x266d;</button><!--
+            --><button id="lowD" class="whitekey Dnote" value="3">D</button><!--
+            --><button id="lowDsEb" class="blackkey" value="4">D&#x266f;<br>E&#x266d;</button><!--
+            --><button id="lowE" class="whitekey Enote" value="5">E</button><!--
+            --><button id="lowF" class="whitekey Fnote" value="6">F</button><!--
+            --><button id="lowFsGb" class="blackkey" value="7">F&#x266f;<br>G&#x266d;</button><!--
+            --><button id="lowG" class="whitekey Gnote" value="8">G</button><!--
+            --><button id="lowGsAb" class="blackkey" value="9">G&#x266f;<br>A&#x266d;</button><!--
+            --><button id="lowA" class="whitekey Anote" value="10">A</button><!--
+            --><button id="lowAsBb" class="blackkey" value="11">A&#x266f;<br>B&#x266d;</button><!--
+            --><button id="lowB" class="whitekey Bnote" value="12">B</button><!--
+        After we take 12 half steps, value keeps increasing, if we're adding the root value to the extension value, will go at least to 33
+            --><button id="midC" class="whitekey Cnote" value="13">C</button><!--
+            --><button id="midCsDb" class="blackkey" value="14">C&#x266f;<br>D&#x266d;</button><!--
+            --><button id="midD" class="whitekey Dnote" value="15">D</button><!--
+            --><button id="midDsEb" class="blackkey" value="16">D&#x266f;<br>E&#x266d;</button><!--
+            --><button id="midE" class="whitekey Enote" value="17">E</button><!--
+            --><button id="midF" class="whitekey Fnote" value="18">F</button><!--
+            --><button id="midFsGb" class="blackkey" value="19">F&#x266f;<br>G&#x266d;</button><!--
+            --><button id="midG" class="whitekey Gnote" value="20">G</button><!--
+            --><button id="midGsAb" class="blackkey" value="21">G&#x266f;<br>A&#x266d;</button><!--
+            --><button id="midA" class="whitekey Anote" value="22">A</button><!--
+            --><button id="midAsBb" class="blackkey" value="23">A&#x266f;<br>B&#x266d;</button><!--
+            --><button id="midB" class="whitekey Bnote" value="24">B</button><!--
+            --><button id="highC" class="whitekey Cnote" value="25">C</button><!--
+            --><button id="highCsDb" class="blackkey" value="26">C&#x266f;<br>D&#x266d;</button><!--
+            --><button id="highD" class="whitekey Dnote" value="27">D</button><!--
+            --><button id="highDsEb" class="blackkey" value="28">D&#x266f;<br>E&#x266d;</button><!--
+            --><button id="highE" class="whitekey Enote" value="29">E</button><!--
+            --><button id="highF" class="whitekey Fnote" value="30">F</button><!--
+            --><button id="highFsGb" class="blackkey" value="31">F&#x266f;<br>G&#x266d;</button><!--
+            --><button id="highG" class="whitekey Gnote" value="32">G</button><!--
+            --><button id="highGsAb" class="blackkey" value="33">G&#x266f;<br>A&#x266d;</button><!--
+            --><button id="highA" class="whitekey Anote" value="34">A</button><!--
+            --><button id="highAsBb" class="blackkey" value="35">A&#x266f;<br>B&#x266d;</button><!--
+            --><button id="highB" class="whitekey Bnote" value="36">B</button>
+        </form>
+
+        <script src= "piano_js.js" type= "text/javascript"></script>
+    </body>
+</html>
