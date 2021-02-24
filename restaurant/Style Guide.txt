@@ -1,0 +1,111 @@
+Madison's Restaurant Style Guide (Version no. 2.0):
+
+
+Consistant HTML coding:
+	- The top of each page should have:
+<!----------------------------------------------------------------------------------------------
+Author: Your name
+Course or Company, ex. CSE-41207 Introduction to HTML and CSS
+Date: Submittal Date
+Revision no.
+------------------------------------------------------------------------------------------------>
+	- Separate each layout element (header, div, article, etc.) with the following notation, with blank lines above and below:
+<!-----------------------------------------------------------------------------------------
+End of previous section, beginning of next section
+------------------------------------------------------------------------------------------->
+		*Note: no need to put blank lines around <--Beginning of header--> and <--End of footer-->
+	- Indent each new line unless they are the same type of tag (ex. li)
+		*Note: <head> and <body> tags can be aligned
+	- Beginnings and ends of tags should be indented the same amount
+
+Consistant CSS coding:
+	- The top of each style sheet should have:
+/**************************************************************************************************************
+Author: Your name
+Course or Company, ex. 148616 Introduction to HTML and CSS
+Date: Submittal Date
+Revision no.
+***************************************************************************************************************/
+	- All grid changes, sizing, margins, padding should go in grid-sizing.css
+		Always put padding and margins properties last
+	- All colors, font, font decorations should go in colors-font.css
+	- Separate each section with the following notation, with blank lines above and below:
+/*--------------------------------------------------------------------------------------------------------------
+The below section (define what it does)
+---------------------------------------------------------------------------------------------------------------*/
+	- Any changes particular to a page should be indented at least 3 times, and have /* Page Title */ above them
+	- Properties should all go on separate lines, unless they're a group of -ms specific properties
+	- Selectors should go in the order in which they appear (on the Large screen)
+
+Page Layout (CSS):
+	- Use the following grid template on all pages:
+	grid-template: 10em repeat(6, 1fr) 10em / repeat(6, 1fr);
+		For smaller screens, adjust 10em to 12em
+	- Header and footer remain the same size and use the following dimensions:
+	grid-area: 1 / 1 / 2 / 7; (Header)
+	grid-area: 8 / 1 / 9 / 7; (Footer)
+	- Sections of the page can be any combinations of 6 columns and 6 rows
+		For two columns, use classes
+			.first-column {Large screen (grid-area: 2 / 1 / 8 / 4;) Small screen (grid-area: 5 / 1 / 8 / 7;)}
+			.second-column {Large screen (grid-area: 2 / 4 / 8 / 7;) Small screen (grid-area: 2 / 1 / 5 / 7;)}
+			*Note: .second-column comes first on smaller screen size unless coded otherwise
+		For three columns, use classes
+			.left-column {Large screen (grid-area: 2 / 1 / 8 / 3;) Small screen (grid-area: 2 / 1 / 4 / 7;)}
+			.middle-column {Large screen (grid-area: 2 / 3 / 8 / 5;) Small screen (grid-area: 4 / 1 / 6 / 7;)}
+			.right-column {Large screen (grid-area: 2 / 5 / 8 / 7;) Small screen (grid-area: 6 / 1 / 8 / 7;)}
+		For one column (full page) use class
+			.three-columns (grid-area: 2 / 1 / 8 / 7)
+			*Note: text-align: center is default for .three-columns unless coded otherwise
+
+Colors and Fonts (CSS):
+	- Use background color: #ffebcd; (off-white color) for all areas but header and footer
+	- Use font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	- Green color: #0e4a28
+		Use for links, borders
+		*May change the opacity for interaction with links
+	- Use Green for <header> and <footer> background-color
+		For links, text in <header> and <footer>, use color: #ffffff (white)
+	- Remove underline for links in the main articles of the page (.three-columns a, etc.)
+		Keep underline for links in header, footer
+	- For emergency updates, use color: #8b0000;
+	- Use hex codes for colors, however may use rgba if opacity is not showing up properly on all browsers
+
+Header and Footer (HTML):
+	- Use the following for all headers:
+	<header class="top3grid">
+            <h1 id="top-about">Page Name</h1> (use "top-page_name" for each page)
+            <nav> <!--Same navigation in each header-->
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+	-Use the following for all footers:
+	<footer class="bottom3grid">
+            <h4>Back to <a href="#top-page_name">Top</a></h4>
+            <nav> <!--Same navigation in each footer-->
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </footer>
+	- nav should always take you to Home, About, Menu, Contact links
+	- (CSS) nav links are display: inline-flex; on Large screen, display: block; on Small screen
+
+Buttons (CSS):
+	- Use the following to make submit buttons:
+	{font-weight: bold; 
+            padding: 0.4em 0.2em;
+            background-color: #34f085;
+            color: #0e4a28;
+            border-color: #0e4a2880 #0e4a28 #0e4a28 #0e4a2880;
+		*Can use rgba(14, 74, 40, 0.5) if opacity not showing up properly on all browsers
+            box-shadow: 3px 3px 3px #535353; (For buttons on a dark background, use #141414;)
+            border-collapse: separate;}
+	:active {box-shadow: 0px 0px 0px #535353;}

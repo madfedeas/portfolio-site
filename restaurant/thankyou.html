@@ -1,0 +1,67 @@
+<!----------------------------------------------------------------------------------------------
+Author: Madison Federin-Easley
+CSE-41207 Introduction to HTML and CSS
+Date: 1/21/2021
+Revision no. 2.0
+------------------------------------------------------------------------------------------------>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Thank You!</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial- scale=1.0">
+        <link href="grid-sizing.css" type="text/css" rel="stylesheet" />
+        <!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    </head>
+    <body class="container"> <!--Additional (slightly cheesy) page to acknowledge that order has been received-->
+        <!-----------------------------------------------------------------------------------------
+        Beginning of header
+        ------------------------------------------------------------------------------------------->
+        <header class="top3grid">
+            <h1 id="top-thank">Thank You!</h1>
+            <nav> <!--Same navigation in each header-->
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-----------------------------------------------------------------------------------------
+        End of header, beginning of thank you page
+        ------------------------------------------------------------------------------------------->
+
+        <article class="three-columns"> 
+            <h2>Thank you for your order!</h2>
+            <h3>Your delivery is on its way!</h3>
+            <p>Please <a href="contact.html">Contact Us</a> if you have any questions about your order.</p>
+            <figure>
+                <img src="https://via.placeholder.com/1080/5B0696/FFFFFF?text=Thank+You!" alt="Thank You!" />
+                <figcaption>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</figcaption>
+            </figure>
+        </article>
+
+        <!-----------------------------------------------------------------------------------------
+        End of thank you page, beginning of footer
+        ------------------------------------------------------------------------------------------->
+
+        <footer class="bottom3grid">
+            <h4>Back to <a href="#top-thank">Top</a></h4>
+            <nav> <!--Same navigation in each footer-->
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </footer>
+        <!-----------------------------------------------------------------------------------------
+        End of footer
+        ------------------------------------------------------------------------------------------->
+    </body>
+</html>

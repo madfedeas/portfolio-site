@@ -1,0 +1,104 @@
+<!----------------------------------------------------------------------------------------------
+Author: Madison Federin-Easley
+CSE-41207 Introduction to HTML and CSS
+Date: 1/19/2021
+Revision no. 2.0
+------------------------------------------------------------------------------------------------>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Contact Us</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial- scale=1.0">
+        <link href="grid-sizing.css" type="text/css" rel="stylesheet" />
+        <!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    </head>
+    <body class="container">
+        <!-----------------------------------------------------------------------------------------
+        Beginning of header
+        ------------------------------------------------------------------------------------------->
+        <header class="top3grid">
+            <h1 id="top-contact">We'd love to hear from you!</h1>
+            <nav> <!--Same navigation in each header-->
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-----------------------------------------------------------------------------------------
+        End of header, beginning of ways to contact/order
+        ------------------------------------------------------------------------------------------->
+
+        <aside class="first-column third-parties">
+            <h3>More Ways to Reach Us</h3>
+            <h4>Call us at <a href="tel:5551234567">(555) 123-4567</a></h4>
+            <h4>Visit us on <a href="https://www.facebook.com/" id="Facebook">Facebook</a>, 
+                <a href="https://www.instagram.com/?hl=en" id="Insta">Instagram</a>, 
+                and <a href="https://twitter.com/?lang=en" id="Twitter">Twitter</a> for all the latest updates.</h4>
+            <h4>Take out and delivery available!</h4><p>Order on our website, or from our partners:</p>
+            <ul id="takeout"> <!--Links to other delivery services-->
+                <li><a href="https://www.grubhub.com/">
+                    Grub Hub</a></li>
+                <li><a href="https://www.ubereats.com/">
+                    Uber Eats</a></li>
+                <li><a href="https://www.seamless.com/">
+                    Seamless</a></li>
+                <li><a href="https://postmates.com/">
+                    Postmates</a></li>
+                <li><a href="https://www.doordash.com/">
+                    Door Dash</a></li>
+            </ul>
+            <h4>We cater! Email us at <a href="mailto:insertbusinesshere@mailinator.com">insertbusinesshere@mailinator.com</a> for details.</h4>
+        </aside>
+
+        <!-----------------------------------------------------------------------------------------
+        End of ways to contact/order, beginning of contact form
+        ------------------------------------------------------------------------------------------->
+
+        <article class="second-column">
+            <h3 id="questions">Questions? Comments? Send us a message!</h3>
+            <!--Named the class for the form instead of the article to help with formatting-->
+            <form class="contact" action="home.html" method="post">
+                <label for="name">Your Name</label>
+                    <input id="name" type="text" name="name" />
+                <label for="email">Your Email</label>
+                    <input id="email" type="email" name="email" />
+                <label>How did you find out about us?</label>
+                    <select id="ad" name="ad">
+                        <option>Social Media</option>
+                        <option>Online Search</option>
+                        <option>Word of Mouth</option>
+                        <option>Visited In Person</option>
+                </select>
+                <label for="message">Your Message</label>
+                    <textarea id="message" name="message"></textarea>
+                <input id="sendmessage" type="submit" name="sendmessage" value="Send Message" />
+            </form>
+        </article>
+
+        <!-----------------------------------------------------------------------------------------
+        End of contact form, beginning of footer
+        ------------------------------------------------------------------------------------------->
+
+        <footer class="bottom3grid">
+            <h4>Back to <a href="#top-contact">Top</a></h4>
+            <nav> <!--Same navigation in each footer-->
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </footer>
+        <!-----------------------------------------------------------------------------------------
+        End of footer
+        ------------------------------------------------------------------------------------------->
+    </body>
+</html>

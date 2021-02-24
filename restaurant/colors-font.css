@@ -1,0 +1,97 @@
+/**************************************************************************************************************
+Author: Madison Federin-Easley
+CSE-41207 Introduction to HTML and CSS
+Date: 1/21/2020
+Revision no. 2.1
+***************************************************************************************************************/
+
+/*--------------------------------------------------------------------------------------------------------------
+The below section defines the default colors and fonts for the pages
+---------------------------------------------------------------------------------------------------------------*/
+
+.container {background-color: #ffebcd;
+    color: #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+        :link, :visited {color: #0e4a28;}
+        a:hover {color: rgba(14, 74, 40, 0.75)} /* Specify hovering over links */
+
+    header.top3grid {background-color: #0e4a28; /* Header/footer links and background opposite colors of rest of page */
+        color: #ffffff;}
+        .top3grid :link, .bottom3grid :link, .top3grid :visited, .bottom3grid :visited {color: #ffffff;}
+        .top3grid h1 {text-shadow: 2px 2px 1px #000000;} /* Makes title of page stand out */
+
+    footer.bottom3grid {background-color: #0e4a28;
+        color: #ffffff;}
+
+/*--------------------------------------------------------------------------------------------------------------
+The below section stylizes the submit buttons used throughout the site
+---------------------------------------------------------------------------------------------------------------*/
+
+        #submit, #checkout, #sendmessage {font-weight: bold;
+            padding: 0.4em 0.2em; /* Normally added padding in grid-sizing.css, but wanted to keep button properties together */
+            background-color: #34f085;
+            color: #0e4a28;
+            border-color: rgba(14, 74, 40, 0.5) #0e4a28 #0e4a28 rgba(14, 74, 40, 0.5);
+            box-shadow: 3px 3px 3px #535353;
+            border-collapse: separate;} /* caniuse.com suggested to include this for shadow to work on IE */          
+            #checkout {box-shadow: 3px 3px 3px #141414;} /*Green background, different shadow */
+        #submit:active, #checkout:active, #sendmessage:active {box-shadow: 0px 0px 0px #535353;} /* Removes shadow from button when clicked */
+
+/*--------------------------------------------------------------------------------------------------------------
+The below section includes the changes made to the individual pages
+---------------------------------------------------------------------------------------------------------------*/
+
+/* Home page */
+    ol {font-weight: bold;}
+        ol ul {font-weight: normal;} /* Only the menu item names are bold */
+    #hours {list-style-type: none;} 
+    #covid {color: #8b0000;
+        text-transform: uppercase;}
+    iframe {border: 2px solid #0e4a28}
+
+/* About page */
+    .three-columns a {text-decoration: none;
+        font-weight: 600;} 
+
+/* Menu page */
+    #menu h3 {text-decoration: underline;}
+        :focus {border: 2px solid #0e4a28;}
+        textarea {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;} /*Also appears on contact page */
+
+/* Checkout page */
+    fieldset {border: 3px solid #0e4a28}
+    legend {font-weight: bold;} /* Bolded to match h3, h4, other headings */
+
+/* Contact page */
+    #takeout {list-style-type: square;}
+    .third-parties a {text-decoration: none;
+        font-weight: 700;}
+        #Facebook {color: rgb(45, 126, 255);} /* Facebook logo color */
+        #Facebook:hover {color: rgba(45, 126, 255, 75%);}
+        #Insta {
+            /* Gradient for Instagram link */
+            background: -webkit-linear-gradient(#405DE6, #E1306C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          #Insta:hover {
+            background: -webkit-linear-gradient(#4786FF, #FF6879);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          #Twitter { /* Twitter logo color */
+            color: rgb(29, 161, 242);
+          }
+          #Twitter:hover {
+            color: rgba(29, 161, 242, 75%);
+          }
+
+/*--------------------------------------------------------------------------------------------------------------
+The below section contains media queries for different screen sizes
+---------------------------------------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 700px) {
+    .second-column, .left-column, .middle-column {border-bottom: 2px dotted #0e4a28;} /* Separates sections on smaller screen */
+    .credit-card {border-bottom: 0px;} /* Order of columns on smaller screens is switched for this page, so border location is switched */
+    .customer {border-bottom: 2px dotted #0e4a28;}
+}

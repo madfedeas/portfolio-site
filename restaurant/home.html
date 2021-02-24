@@ -1,0 +1,104 @@
+<!----------------------------------------------------------------------------------------------
+Author: Madison Federin-Easley
+CSE-41207 Introduction to HTML and CSS
+Date: 1/20/2021
+Revision no. 2.1
+------------------------------------------------------------------------------------------------>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Home Page</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial- scale=1.0">
+        <link href="grid-sizing.css" type="text/css" rel="stylesheet" />
+        <!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    </head>
+    <body class="container">
+        <!-----------------------------------------------------------------------------------------
+        Beginning of header
+        ------------------------------------------------------------------------------------------>
+        <header class="top3grid">
+            <h1 id="top-home">Your Restaurant Here!</h1>
+            <nav> <!--Same navigation in each header-->
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-----------------------------------------------------------------------------------------
+        End of header, beginning of announcements
+        ------------------------------------------------------------------------------------------>
+
+        <aside class="first-column announcements">
+            <h3> New Items Coming Soon!</h3>
+            <ol>
+                <li> Vitae Suscipit 
+                    <ul>
+                        <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                    </ul></li>
+                <li> Tellus Mauris
+                    <ul>
+                        <li> Urna neque viverra justo nec ultrices dui sapien. Mauris nunc congue nisi vitae suscipit tellus.</li>
+                    </ul></li>
+                <li> Feugiat Vivamus
+                    <ul>
+                    <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Semper risus in hendrerit gravida rutrum quisque non tellus.</li>
+                    </ul></li>
+            </ol>
+            <h4>Hours of Operation:</h4>
+                <ul id="hours">
+                    <li>Sunday: 11:00 AM - 9:00 PM</li>
+                    <li>Monday: CLOSED</li>
+                    <li>Tuesday: 11:00 AM - 3:00 PM</li>
+                    <li>Wednesday: 11:00 AM - 3:00 PM</li>
+                    <li>Thursday: 11:00 AM - 9:00 PM</li>
+                    <li>Friday: 11:00 AM - 10:00 PM</li>
+                    <li>Saturday: 11:00 AM - 10:00 PM</li>
+                </ul>
+            <p id="covid">Please Note: New regulations in place due to COVID-19: Surfaces santized regularly, limited seating capacity to allow for social distancing.
+                Patrons who refuse to wear maskz will politely be asked to leave. Patrons who do not leave when asked will be rudely asked to leave.
+            </p>
+        </aside>
+
+        <!-----------------------------------------------------------------------------------------
+        End of announcements, beginning of map and video
+        ------------------------------------------------------------------------------------------>
+
+        <article class="second-column video-map">
+            <h3>Maps will take users directly to your restaurant!</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107231.05387969576!2d-117.31861220750882!3d32.87250168465537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dbd0764fcc0ecd%3A0xfce51ef45c1d3094!2sLa%20Jolla%2C%20San%20Diego%2C%20CA!5e0!3m2!1sen!2sus!4v1611182732396!5m2!1sen!2sus"
+            width="400" height="300" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> <!--Code from Google Maps, removed frameborder-->
+            <h3>Share a video!</h3>
+            <p>Embed videos directly from YouTube or Vimeo, or add other promotions, ads to your website.</p>
+            <iframe width="420" height="236" src="https://www.youtube.com/embed/ScMzIvxBSi4"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <!--Code from YouTube, original dimensions 560 x 315-->
+        </article>
+
+        <!-----------------------------------------------------------------------------------------
+        End of map and video, beginning of footer
+        ------------------------------------------------------------------------------------------>
+
+        <footer class="bottom3grid">
+            <h4>Back to <a href="#top-home">Top</a></h4>
+            <nav> <!--Same navigation in each footer-->
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </footer>
+        <!-----------------------------------------------------------------------------------------
+        End of footer
+        ------------------------------------------------------------------------------------------>
+    </body>
+</html>

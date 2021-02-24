@@ -1,0 +1,157 @@
+<!----------------------------------------------------------------------------------------------
+Author: Madison Federin-Easley
+CSE-41207 Introduction to HTML and CSS
+Date: 1/21/2021
+Revision no. 2.0
+------------------------------------------------------------------------------------------------>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Order Here!</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial- scale=1.0">
+        <link href="grid-sizing.css" type="text/css" rel="stylesheet" />
+        <!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    </head>
+    <body class="container">
+    <form class="menu" action="checkout.html" method="post"> <!--Form emcompasses whole page, fixed grid formatting-->
+        <!-----------------------------------------------------------------------------------------
+        Beginning of header
+        ------------------------------------------------------------------------------------------->
+        <header class="top3grid">
+            <h1 id="top-menu">Menu - Order Here!</h1>
+            <nav> <!--Same navigation in each header-->
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-----------------------------------------------------------------------------------------
+        End of header, beginning of breakfast
+        ------------------------------------------------------------------------------------------->
+
+        <section class="left-column food-descriptions">
+            <h3>Breakfast</h3> 
+            <h4>French Toast $17.00</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <label>Quantity: <input class="qty" type="number" name="frenchtoast" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialft"></textarea></label>
+            <h4>Pancakes $17.00</h4>
+                <p>Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi ut labore et dolore magna aliqua.</p>
+                    <label> Quantity: <input class="qty" type="number" name="redvelvetpancake" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialrvp"></textarea></label>
+            <h4>Waffles $18.00</h4>
+                <p>Urna porttitor rhoncus dolor purus non enim praesent. Sed adipiscing diam donec adipiscing tristique risus nec.</p>
+                    <label> Quantity: <input class="qty" type="number" name="savorypancake" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialsp"></textarea></label>
+
+        <!---End of breakfast, beginning of salads--->
+            <h3>Salads</h3>
+            <h4>House Salad*&plusmn; $14.00</h4>
+                <p>Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Nulla pharetra diam sit amet nisl suscipit adipiscing.</p>
+                    <label> Quantity: <input class="qty" type="number" name="housesalad" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialhs"></textarea></label>
+            <h4>Caesar Salad $14.00</h4>
+                <p>Tempor nec feugiat nisl pretium. Nunc id cursus metus aliquam eleifend mi in nulla. Varius vel pharetra vel turpis.</p>
+                    <label> Quantity: <input class="qty" type="number" name="caesarsalad" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialcs"></textarea></label>
+            <h4>Fruit Salad*&plusmn; $14.00</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Velit euismod in pellentesque.</p>
+                    <label> Quantity: <input class="qty" type="number" name="caesarsalad" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialcs"></textarea></label>
+        </section>
+
+        <!-----------------------------------------------------------------------------------------
+        End of salads, beginning of lunch/dinner
+        ------------------------------------------------------------------------------------------->
+
+        <section class="middle-column food-descriptions">
+            <h3>Lunch &amp; Dinner</h3>
+            <h4>Pesto Panini* $18.00</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <label> Quantity: <input class="qty" type="number" name="pestopanini" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialpp"></textarea></label>
+            <h4>BLT Sandwich $18.00</h4>
+                <p>Ut eu sem integer vitae justo eget magna. Diam volutpat commodo sed egestas. Nunc id cursus metus aliquam eleifend mi in nulla.</p>
+                    <label> Quantity: <input class="qty" type="number" name="fulltank" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialfts"></textarea></label>
+            <h4>Burger $19.00</h4>
+                <p>Odio euismod lacinia at quis risus sed vulputate. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada.</p>
+                    <label> Quantity: <input class="qty" type="number" name="bombaybomb" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialbbb"></textarea></label>
+            <h4>Penne Alfredo* $18.00</h4>
+                <p>Mi ipsum faucibus vitae aliquet. Quam quisque id diam vel quam elementum pulvinar etiam non.
+                    Ridiculus mus mauris vitae ultricies leo integer.</p>
+                    <label> Quantity: <input class="qty" type="number" name="pennealfredo" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialpa"></textarea></label>
+            <h4>Curry*&plusmn; $18.00</h4>
+                <p>Donec ultrices tincidunt arcu non sodales neque. Vitae nunc sed velit dignissim sodales. Lacus luctus accumsan tortor posuere.</p>
+                    <label> Quantity: <input class="qty" type="number" name="dhalcurry" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialdc"></textarea></label>
+            <h4>Today's Special $10.00</h4>
+                <p>Tristique nulla aliquet enim tortor at auctor urna. Lorem ipsum dolor sit amet elit dignissim sodales.</p>
+                    <label> Quantity: <input class="qty" type="number" name="sambusa" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialst"></textarea></label>
+        </section>
+
+        <!-----------------------------------------------------------------------------------------
+        End of lunch/dinner, beginning of desserts
+        ------------------------------------------------------------------------------------------->
+
+        <section class="right-column food-descriptions">
+            <h3>Desserts</h3>
+            <h4>Cheesecake $10.00</h4>
+                <p>Aenean sed adipiscing diam donec adipiscing tristique risus nec.</p>
+                    <label> Quantity: <input class="qty" type="number" name="cheesecake" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialcmc"></textarea></label>
+            <h4>Chocolate Mousse&plusmn; $10.00</h4>
+                <p>Est ante in nibh mauris cursus mattis molestie, tempor incididunt ut labore.</p>
+                    <label> Quantity: <input class="qty" type="number" name="mousse" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialacm"></textarea></label>
+            <h4>Cake*&plusmn; $10.00</h4>
+                <p>In vitae turpis massa sed elementum tempus egestas sed dignissim convallis.</p>
+                    <label> Quantity: <input class="qty" type="number" name="redvelvet" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialrvc"></textarea></label>
+            <h4>Berry Cobbler* $10.00</h4>
+                <p>Lorem ipsum laoreet id donec ultrices adipiscing elit, sed do eiusmod tempor incididunt urna porttitor rhoncus dolor.</p>
+                    <label> Quantity: <input class="qty" type="number" name="boysencobbler" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialbc"></textarea></label>
+            <h4>Ice Cream&plusmn; $10.00</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <label> Quantity: <input class="qty" type="number" name="pudding" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialmcbp"></textarea></label>
+            <h4>Pastries $10.00</h4>
+                <p>Mus mauris vitae ultricies leo integer malesuada. Nec ullamcorper sit amet risus nullam eget.</p>
+                    <label> Quantity: <input class="qty" type="number" name="pastries" value="0" min="0" /></label>
+                        <label> Special Requests? <textarea name="specialpt"></textarea></label>
+        </section>
+
+        <!-----------------------------------------------------------------------------------------
+        End of desserts, beginning of footer
+        ------------------------------------------------------------------------------------------->
+
+        <footer class="bottom3grid">
+            <input id="checkout" type="submit" name="checkout" value="Proceed to Checkout" />
+            <p>* Vegan - &plusmn; Gluten Free - Back to <a href="#top-menu">Top</a></p> <!--Synbols on menu to indicate special dietary restrictions-->
+            <nav> <!--Same navigation in each footer-->
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </footer>
+        <!-----------------------------------------------------------------------------------------
+        End of footer
+        ------------------------------------------------------------------------------------------->
+    </form>
+    </body>
+</html>

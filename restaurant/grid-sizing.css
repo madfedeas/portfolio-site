@@ -1,0 +1,153 @@
+/**************************************************************************************************************
+Author: Madison Federin-Easley
+CSE-41207 Introduction to HTML and CSS
+Date: 1/19/2021
+Revision no. 2.0
+***************************************************************************************************************/
+
+@import url("colors-font.css"); /* Colors and font changes (ex. bolding, underlining) in separate style sheet */
+
+/*--------------------------------------------------------------------------------------------------------------
+The below section creates the grid pattern to be used on all the individual pages
+---------------------------------------------------------------------------------------------------------------*/
+
+.container {display: -ms-grid; display: grid;
+        -ms-grid-rows: 10em repeat(6, 1fr) 10em; /* Additional code for grid to work in Internet Explorer */
+        -ms-grid-columns: repeat(6, 1fr);
+    grid-template: 10em repeat(6, 1fr) 10em / repeat(6, 1fr);
+    margin: 0;
+    padding: 0;}
+    header, footer, aside, section, article, nav {display: block;}
+header.top3grid {-ms-grid-row: 1; -ms-grid-row-span: 1; -ms-grid-column: 1; -ms-grid-column-span: 6;
+    grid-area: 1 / 1 / 2 / 7;
+    text-align: center;}
+    nav ul {padding: 0 0 1em 0;
+        margin: 0;}
+    nav li {list-style-type: none;
+        display: -ms-inline-flexbox; display: inline-flex; /* Used inline-flex instead of float to put links side by side*/
+        min-width: 6%;
+        justify-content: center;
+        padding: 0;
+        margin: 0;}
+    form.menu {display: -ms-grid; display: grid;
+            -ms-grid-rows: 10em repeat(6, 1fr) 10em;
+            -ms-grid-columns: repeat(6, 1fr);
+        grid-template: 10em repeat(6, 1fr) 10em / repeat(6, 1fr);
+            -ms-grid-row: 1;-ms-grid-row-span: 8;-ms-grid-column: 1;-ms-grid-column-span: 6;
+        grid-area: 1 / 1 / 9 / 7;
+        margin: 0;}
+
+/*--------------------------------------------------------------------------------------------------------------
+The below section defines the different columns
+---------------------------------------------------------------------------------------------------------------*/
+
+.left-column {-ms-grid-row: 2;-ms-grid-row-span: 6;-ms-grid-column: 1;-ms-grid-column-span: 2;/* Prefixed by https://autoprefixer.github.io */
+    grid-area: 2 / 1 / 8 / 3;}
+.middle-column {-ms-grid-row: 2;-ms-grid-row-span: 6;-ms-grid-column: 3;-ms-grid-column-span: 2; /* PostCSS: v7.0.29 */
+    grid-area: 2 / 3 / 8 / 5;}
+.right-column {-ms-grid-row: 2;-ms-grid-row-span: 6;-ms-grid-column: 5;-ms-grid-column-span: 2; /* Autoprefixer: v9.7.6 */
+    grid-area: 2 / 5 / 8 / 7;}
+.first-column {-ms-grid-row: 2;-ms-grid-row-span: 6;-ms-grid-column: 1;-ms-grid-column-span: 3; /* Browsers: last 4 version */
+    grid-area: 2 / 1 / 8 / 4;}
+.second-column {-ms-grid-row: 2;-ms-grid-row-span: 6;-ms-grid-column: 4;-ms-grid-column-span: 3;
+    grid-area: 2 / 4 / 8 / 7;}
+.three-columns {-ms-grid-row: 2;-ms-grid-row-span: 6;-ms-grid-column: 1;-ms-grid-column-span: 6;
+    grid-area: 2 / 1 / 8 / 7;
+    text-align: center;
+    margin-left: auto; margin-right: auto;}
+footer.bottom3grid {-ms-grid-row: 8;-ms-grid-row-span: 1;-ms-grid-column: 1;-ms-grid-column-span: 7;
+    grid-area: 8 / 1 / 10 / 7;
+    text-align: center;}
+
+/*--------------------------------------------------------------------------------------------------------------
+The below section includes the changes made to the individual pages
+---------------------------------------------------------------------------------------------------------------*/
+        /* Homepage */        
+        .announcements {padding: 0 2em 0 1em;}
+        .video-map {text-align: center;
+        margin-left: auto; margin-right: auto;}
+        #placeholder {margin: 0 0 1em 0;} /*Creates space between video and bottom of page */
+
+        /* About page */
+        .three-columns img {width: 35%; height: auto;
+            margin: 2%;}
+            .three-columns img:hover {width: 40%; height: auto;}
+        .story {margin: 0 1em;}
+
+        /* Menu page */
+        .food-descriptions {padding: 0 1em 2em 1em;}
+            .food-descriptions label {display: block;}
+        .qty {width: 3em;}
+        textarea {height: 1.75em;
+            width: 15em;}
+        #checkout {margin: 1em 0 0 0;} /* Creates space between submit button and top of footer */
+        
+        /* Checkout page/Thank you page */
+        fieldset {margin: 2em 4em;
+            padding: 0.5em 0 0.5em 1em;} 
+        #surname, #phone, #street, #unit, #city, #ccnumber, #expiration, #ccv {display: block;} /* Form stacked */
+        #state, #zip {margin: 0.75em 1.5em 1.5em 0;}
+            #state {width: 3.5em;}
+            #zip {width: 5em;}
+            #ccv {width: 4em;}
+        .card-types label {display: inline;}
+        #submit {margin: 0.75em 0 0.5em 0;}
+
+        /* Contact page */
+        .third-parties {padding: 0 1em;}
+        form.contact {display: grid;
+            grid-template-columns: 45% 55%; /*Form aligned with grid, though not in IE */
+            padding: 0 1em;}
+            h3#questions {text-align: center;
+                margin-left: auto; margin-right: auto;}
+            .contact label {display: grid;
+                grid-column: 1/2;
+                margin: 0.5em 0 0 0;}
+            .contact input {display: grid;
+                grid-column: 2/3;}
+            #sendmessage {display: grid;
+                grid-column: 1/4;
+                margin: 0.5em 0;}
+                textarea#message {height: 10em;
+                    width: 100%;}
+
+/*--------------------------------------------------------------------------------------------------------------
+The below section contains media queries for different screen sizes
+---------------------------------------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 900px) {
+    fieldset {margin: 2em 1em;} /* Changing margin around fieldset to improve appearance of form on different screen sizes */
+    #state, #zip {display: block;
+    margin: 0;}
+}
+    
+
+@media only screen and (max-width: 700px) {
+    .container {-ms-grid-rows: 12em repeat(6, 1fr) 12em;
+        grid-template-rows: 12em repeat(6, 1fr) 12em;}
+    nav li {display: block;}
+    form.menu {-ms-grid-rows: 12em repeat(6, 1fr) 12em;
+        grid-template-rows: 12em repeat(6, 1fr) 12em;}
+    .left-column {-ms-grid-row: 2;-ms-grid-row-span: 2;-ms-grid-column: 1;-ms-grid-column-span: 6;
+        grid-area: 2 / 1 / 4 / 7;}
+    .middle-column {-ms-grid-row: 4;-ms-grid-row-span: 2;-ms-grid-column: 1;-ms-grid-column-span: 6;
+        grid-area: 4 / 1 / 6 / 7;}
+    .right-column {-ms-grid-row: 6;-ms-grid-row-span: 2;-ms-grid-column: 1;-ms-grid-column-span: 6;
+        grid-area: 6 / 1 / 8 / 7;}
+    .first-column {-ms-grid-row: 5;-ms-grid-row-span: 3;-ms-grid-column: 1;-ms-grid-column-span: 6;
+        grid-area: 5 / 1 / 8 / 7;} /* First column comes second on smaller screens */
+    .second-column {-ms-grid-row: 2;-ms-grid-row-span: 3;-ms-grid-column: 1;-ms-grid-column-span: 6;
+        grid-area: 2 / 1 / 5 / 7;}
+
+        /* About page */
+        .three-columns img {width: 70%; height: auto;}
+            .three-columns img:hover {width: 75%; height: auto;} /* Images take up more of screen and don't sit side by side on smaller screens */
+
+        /* Checkout page */
+        .customer {-ms-grid-row: 2;-ms-grid-row-span: 3;-ms-grid-column: 1;-ms-grid-column-span: 6;
+            grid-area: 2 / 1 / 5 / 7;}
+        .credit-card {-ms-grid-row: 5;-ms-grid-row-span: 3;-ms-grid-column: 1;-ms-grid-column-span: 6;
+            grid-area: 5 / 1 / 8 / 7;} /* Second column comes second on smaller screens for the checkout page only */
+        #state, #zip {display: inline; 
+            margin: 0.75em 1.5em 0 0;}
+}
