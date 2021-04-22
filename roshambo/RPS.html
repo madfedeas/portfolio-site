@@ -55,9 +55,8 @@ Revision no. 2.1
             }
         }
 
-        // Picks rock button and adds onclick function
-        const rockbtn = document.getElementById("rock");
-        rockbtn.addEventListener("click", function(){
+        // Picks rock button and on click, runs function
+        $("#rock").click(function(){
             let userChoice = "rock";
             // Runs function to get a random choice for computer
             let compChoice = getCompChoice();
@@ -85,9 +84,8 @@ Revision no. 2.1
             }
         });
 
-        // addEventListener for paper, scissors, and winner buttons
-        const pprbtn = document.getElementById("paper");
-        pprbtn.addEventListener("click", function(){
+        // Replaced addEventListener with jQuery for paper, scissors, and winner buttons
+        $("#paper").click(function(){
             let userChoice = "paper";
             let compChoice = getCompChoice();
             let gameStatus = "";
@@ -110,8 +108,7 @@ Revision no. 2.1
             }
         });
 
-        const scisbtn = document.getElementById("scissors");
-        scisbtn.addEventListener("click", function(){
+        $("#scissors").click(function(){
             let userChoice = "scissors";
             let compChoice = getCompChoice();
             let gameStatus = "";
@@ -134,8 +131,7 @@ Revision no. 2.1
             }
         });
 
-        const winbtn = document.getElementById("winner");
-        winbtn.addEventListener("click", function(){
+        $("#winner").click(function(){
             // If/Else checks whether computer or user has more wins and displays correct message
             if (totalCompWins > totalUserWins){
                 document.getElementById("finalwinner").innerHTML = "The computer has won the Rock, Paper, Scissors tournament...";
