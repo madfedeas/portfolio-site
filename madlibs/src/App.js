@@ -9,7 +9,7 @@ class App extends Component {
     super(props)
   this.state = {
     showStory: false,
-    pageTitle: "Fill out the words",
+    pageTitle: "Remember: a noun is a person, place, or thing.",
     verbed1: "",
     adj1: "",
     surname1: "",
@@ -61,14 +61,14 @@ class App extends Component {
 
   tryAgain = () => {
     this.setState({showStory: false});
-    this.setState({pageTitle: "Fill out the words"});
+    this.setState({pageTitle: "Remember: an adverb describes a verb, an adjective describs a noun!"});
   }
 
   render(){
     return (
       <>
       <header className={css(styles.bounce)}>
-        <h1>Let's Play MadLibs!</h1>
+        <h1>Fill In the Blanks!</h1>
         <h2>{this.state.pageTitle}</h2>
       </header>
       <div className="moving"></div>
