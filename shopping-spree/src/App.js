@@ -6,6 +6,7 @@ import {
   Route
 } from 'react-router-dom';
 import SimpleStorage from 'react-simple-storage';
+
 // Downloaded custom alert box for when users want to add/delete items from cart
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
@@ -35,7 +36,15 @@ class App extends Component {
         content: "Keep your feet warm and stylish too!"
       }
     ],
-    cart: []
+    cart: [],
+    // Added prices to state so that changes here will update everywhere
+    prices: {
+      shoe: 50,
+      heel: 90,
+      boot: 70,
+      black: 15,
+      blue: 10
+    }
   };
 
   setItem = item => {
@@ -87,13 +96,12 @@ class App extends Component {
       <Router>
         <SimpleStorage parent={this} />
         <Header pages={this.state.pages} />
-        <SimpleStorage parent={this} />
         {this.state.message && <Message type={this.state.message} />}
         <Switch>
           <Route
             exact
             path="/"
-            render={() => <Homepage cart={this.state.cart} deleteFromCart={this.deleteFromCart} />}
+            render={() => <Homepage cart={this.state.cart} deleteFromCart={this.deleteFromCart} prices={this.state.prices} />}
           /> {/* Calls a separate homepage component to easily navigate back to */}
           <Route
             extact
@@ -101,7 +109,7 @@ class App extends Component {
             render={props => {
               const page = this.state.pages.find(
                 page => page.slug === props.match.params.postSlug);
-                if (page) return <Content page={page} setItem={this.setItem} />
+                if (page) return <Content page={page} setItem={this.setItem} prices={this.state.prices} />
                 else return <NotFound />; // If no such slug exists, display 404 page
             }}
           />
