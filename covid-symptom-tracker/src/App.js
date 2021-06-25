@@ -5,6 +5,7 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
+import SimpleStorage from "react-simple-storage";
 import firebase from "./firebase";
 
 import Header from "./components/Header";
@@ -76,6 +77,11 @@ class App extends Component {
       }, 1600);
     }
   };
+  // Fix dates to mm/dd/yyyy format
+  fixDate = date => {
+    let dateArr = date.split('-')
+    return dateArr[1] + "/" + dateArr[2] + "/" + dateArr[0];
+  };
   componentDidMount(){
     const symptomsRef = firebase.database().ref("symptoms");
     symptomsRef.on("value", snapshot => {
@@ -110,6 +116,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+        <SimpleStorage parent={this} />
           <Header isAuthentic={this.state.isAuthentic} onLogout={this.onLogout} />
           {/* This is where the message will be displayed (for a limited time) */}
           {this.state.message && <Message type={this.state.message} />}
@@ -117,14 +124,14 @@ class App extends Component {
             {/* Route for main page */}
             <Route exact path="/"
               render={() => (
-                <MainPage />
+                <MainPage fixDate = {this.fixDate} />
               )}
             />
             {/* Route for tracker page */}
             <Route exact path="/tracker"
               render={() => (
                 <Tracker isAuthentic={this.state.isAuthentic} symptoms={this.state.symptoms}
-                deleteEntry={this.deleteEntry} />
+                deleteEntry={this.deleteEntry} fixDate = {this.fixDate} />
               )}
             />
             {/* Route for visiting an entry */}
