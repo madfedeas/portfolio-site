@@ -1,7 +1,7 @@
 <!--********************************************************************************************
 Author: Madison Federin-Easley
-Date: 1/19/2021
-Revision no. 5.0
+Date: 6/25/2021
+Revision no. 6.0
 *********************************************************************************************-->
 <!DOCTYPE html>
 <html>
@@ -16,21 +16,21 @@ Revision no. 5.0
             <h3>--------Chord Root--------</h3>
             <form id="upperkeys">
         <!--All buttons have id (what note they are), class (white or black key), value (C=1 and so forth), and call function to show root on lower keyboard-->
-                <button type="button" id="C" class="whitekey Cnote" value="1" onclick="chooseRoot(this.value);">C</button><!--
-                --><button type="button" id="CsDb" class="blackkey" value="2" onclick="chooseRoot(this.value);">C&#x266f;<br>D&#x266d;</button><!--
-                --><button type="button" id="D" class="whitekey Dnote" value="3" onclick="chooseRoot(this.value);">D</button><!--
-                --><button type="button" id="DsEb" class="blackkey" value="4" onclick="chooseRoot(this.value);">D&#x266f;<br>E&#x266d;</button><!--
-                --><button type="button" id="E" class="whitekey Enote" value="5" onclick="chooseRoot(this.value);">E</button><!--
-                --><button type="button" id="F" class="whitekey Fnote" value="6" onclick="chooseRoot(this.value);">F</button><!--
-                --><button type="button" id="FsGb" class="blackkey" value="7" onclick="chooseRoot(this.value);">F&#x266f;<br>G&#x266d;</button><!--
-                --><button type="button" id="G" class="whitekey Gnote" value="8" onclick="chooseRoot(this.value);">G</button><!--
-                --><button type="button" id="GsAb" class="blackkey" value="9" onclick="chooseRoot(this.value);">G&#x266f;<br>A&#x266d;</button><!--
-                --><button type="button" id="A" class="whitekey Anote" value="10" onclick="chooseRoot(this.value);">A</button><!--
-                --><button type="button" id="AsBb" class="blackkey" value="11" onclick="chooseRoot(this.value);">A&#x266f;<br>B&#x266d;</button><!--
-                --><button type="button" id="B" class="whitekey Bnote" value="12" onclick="chooseRoot(this.value);">B</button>
+                <button type="button" id="C" class="whitekey Cnote" value="1" onclick="chooseRoot(this.value, this.id);">C</button><!--
+                --><button type="button" id="CsDb" class="blackkey" value="2" onclick="chooseRoot(this.value, this.id);">C&#x266f;<br>D&#x266d;</button><!--
+                --><button type="button" id="D" class="whitekey Dnote" value="3" onclick="chooseRoot(this.value, this.id);">D</button><!--
+                --><button type="button" id="DsEb" class="blackkey" value="4" onclick="chooseRoot(this.value, this.id);">D&#x266f;<br>E&#x266d;</button><!--
+                --><button type="button" id="E" class="whitekey Enote" value="5" onclick="chooseRoot(this.value, this.id);">E</button><!--
+                --><button type="button" id="F" class="whitekey Fnote" value="6" onclick="chooseRoot(this.value, this.id);">F</button><!--
+                --><button type="button" id="FsGb" class="blackkey" value="7" onclick="chooseRoot(this.value, this.id);">F&#x266f;<br>G&#x266d;</button><!--
+                --><button type="button" id="G" class="whitekey Gnote" value="8" onclick="chooseRoot(this.value, this.id);">G</button><!--
+                --><button type="button" id="GsAb" class="blackkey" value="9" onclick="chooseRoot(this.value, this.id);">G&#x266f;<br>A&#x266d;</button><!--
+                --><button type="button" id="A" class="whitekey Anote" value="10" onclick="chooseRoot(this.value, this.id);">A</button><!--
+                --><button type="button" id="AsBb" class="blackkey" value="11" onclick="chooseRoot(this.value, this.id);">A&#x266f;<br>B&#x266d;</button><!--
+                --><button type="button" id="B" class="whitekey Bnote" value="12" onclick="chooseRoot(this.value, this.id);">B</button>
             </form>
         <!--Resets the page so user can pick a new root-->
-        <br><button id="reset" type="reset" onclick="resetPage();">Reset Root</button>
+        <br><button id="reset" type="reset" onclick="resetPage();">Reset Page</button>
 
         <div>
         <h3>--------Extension--------</h3>
@@ -72,46 +72,46 @@ Revision no. 5.0
             </form>
         </div>
 
-        <h3>--------Keyboard Display--------</h3>
+        <h3>--------Keyboard (Play Here)--------</h3>
             <form id="lowerkeys">
         <!--Keyboard for displaying roots and extensions chosen above, same styling as upper keyboard-->
-            <button id="lowC" class="whitekey Cnote" value="1">C</button><!--
-            --><button id="lowCsDb" class="blackkey" value="2">C&#x266f;<br>D&#x266d;</button><!--
-            --><button id="lowD" class="whitekey Dnote" value="3">D</button><!--
-            --><button id="lowDsEb" class="blackkey" value="4">D&#x266f;<br>E&#x266d;</button><!--
-            --><button id="lowE" class="whitekey Enote" value="5">E</button><!--
-            --><button id="lowF" class="whitekey Fnote" value="6">F</button><!--
-            --><button id="lowFsGb" class="blackkey" value="7">F&#x266f;<br>G&#x266d;</button><!--
-            --><button id="lowG" class="whitekey Gnote" value="8">G</button><!--
-            --><button id="lowGsAb" class="blackkey" value="9">G&#x266f;<br>A&#x266d;</button><!--
-            --><button id="lowA" class="whitekey Anote" value="10">A</button><!--
-            --><button id="lowAsBb" class="blackkey" value="11">A&#x266f;<br>B&#x266d;</button><!--
-            --><button id="lowB" class="whitekey Bnote" value="12">B</button><!--
+            <button type="button" id="C4" class="whitekey Cnote" value="1" onclick="playAudio(this.id);">C</button><!--
+            --><button type="button" id="Cs4" class="blackkey" value="2" onclick="playAudio(this.id);">C&#x266f;<br>D&#x266d;</button><!--
+            --><button type="button" id="D4" class="whitekey Dnote" value="3" onclick="playAudio(this.id);">D</button><!--
+            --><button type="button" id="Ds4" class="blackkey" value="4" onclick="playAudio(this.id);">D&#x266f;<br>E&#x266d;</button><!--
+            --><button type="button" id="E4" class="whitekey Enote" value="5" onclick="playAudio(this.id);">E</button><!--
+            --><button type="button" id="F4" class="whitekey Fnote" value="6" onclick="playAudio(this.id);">F</button><!--
+            --><button type="button" id="Fs4" class="blackkey" value="7" onclick="playAudio(this.id);">F&#x266f;<br>G&#x266d;</button><!--
+            --><button type="button" id="G4" class="whitekey Gnote" value="8" onclick="playAudio(this.id);">G</button><!--
+            --><button type="button" id="Gs4" class="blackkey" value="9" onclick="playAudio(this.id);">G&#x266f;<br>A&#x266d;</button><!--
+            --><button type="button" id="A4" class="whitekey Anote" value="10" onclick="playAudio(this.id);">A</button><!--
+            --><button type="button" id="As4" class="blackkey" value="11" onclick="playAudio(this.id);">A&#x266f;<br>B&#x266d;</button><!--
+            --><button type="button" id="B4" class="whitekey Bnote" value="12" onclick="playAudio(this.id);">B</button><!--
         After we take 12 half steps, value keeps increasing, if we're adding the root value to the extension value, will go at least to 33
-            --><button id="midC" class="whitekey Cnote" value="13">C</button><!--
-            --><button id="midCsDb" class="blackkey" value="14">C&#x266f;<br>D&#x266d;</button><!--
-            --><button id="midD" class="whitekey Dnote" value="15">D</button><!--
-            --><button id="midDsEb" class="blackkey" value="16">D&#x266f;<br>E&#x266d;</button><!--
-            --><button id="midE" class="whitekey Enote" value="17">E</button><!--
-            --><button id="midF" class="whitekey Fnote" value="18">F</button><!--
-            --><button id="midFsGb" class="blackkey" value="19">F&#x266f;<br>G&#x266d;</button><!--
-            --><button id="midG" class="whitekey Gnote" value="20">G</button><!--
-            --><button id="midGsAb" class="blackkey" value="21">G&#x266f;<br>A&#x266d;</button><!--
-            --><button id="midA" class="whitekey Anote" value="22">A</button><!--
-            --><button id="midAsBb" class="blackkey" value="23">A&#x266f;<br>B&#x266d;</button><!--
-            --><button id="midB" class="whitekey Bnote" value="24">B</button><!--
-            --><button id="highC" class="whitekey Cnote" value="25">C</button><!--
-            --><button id="highCsDb" class="blackkey" value="26">C&#x266f;<br>D&#x266d;</button><!--
-            --><button id="highD" class="whitekey Dnote" value="27">D</button><!--
-            --><button id="highDsEb" class="blackkey" value="28">D&#x266f;<br>E&#x266d;</button><!--
-            --><button id="highE" class="whitekey Enote" value="29">E</button><!--
-            --><button id="highF" class="whitekey Fnote" value="30">F</button><!--
-            --><button id="highFsGb" class="blackkey" value="31">F&#x266f;<br>G&#x266d;</button><!--
-            --><button id="highG" class="whitekey Gnote" value="32">G</button><!--
-            --><button id="highGsAb" class="blackkey" value="33">G&#x266f;<br>A&#x266d;</button><!--
-            --><button id="highA" class="whitekey Anote" value="34">A</button><!--
-            --><button id="highAsBb" class="blackkey" value="35">A&#x266f;<br>B&#x266d;</button><!--
-            --><button id="highB" class="whitekey Bnote" value="36">B</button>
+            --><button type="button" id="C5" class="whitekey Cnote" value="13" onclick="playAudio(this.id);">C</button><!--
+            --><button type="button" id="Cs5" class="blackkey" value="14" onclick="playAudio(this.id);">C&#x266f;<br>D&#x266d;</button><!--
+            --><button type="button" id="D5" class="whitekey Dnote" value="15" onclick="playAudio(this.id);">D</button><!--
+            --><button type="button" id="Ds5" class="blackkey" value="16" onclick="playAudio(this.id);">D&#x266f;<br>E&#x266d;</button><!--
+            --><button type="button" id="E5" class="whitekey Enote" value="17" onclick="playAudio(this.id);">E</button><!--
+            --><button type="button" id="F5" class="whitekey Fnote" value="18" onclick="playAudio(this.id);">F</button><!--
+            --><button type="button" id="Fs5" class="blackkey" value="19" onclick="playAudio(this.id);">F&#x266f;<br>G&#x266d;</button><!--
+            --><button type="button" id="G5" class="whitekey Gnote" value="20" onclick="playAudio(this.id);">G</button><!--
+            --><button type="button" id="Gs5" class="blackkey" value="21" onclick="playAudio(this.id);">G&#x266f;<br>A&#x266d;</button><!--
+            --><button type="button" id="A5" class="whitekey Anote" value="22" onclick="playAudio(this.id);">A</button><!--
+            --><button type="button" id="As5" class="blackkey" value="23" onclick="playAudio(this.id);">A&#x266f;<br>B&#x266d;</button><!--
+            --><button type="button" id="B5" class="whitekey Bnote" value="24" onclick="playAudio(this.id);">B</button><!--
+            --><button type="button" id="C6" class="whitekey Cnote" value="25" onclick="playAudio(this.id);">C</button><!--
+            --><button type="button" id="Cs6" class="blackkey" value="26" onclick="playAudio(this.id);">C&#x266f;<br>D&#x266d;</button><!--
+            --><button type="button" id="D6" class="whitekey Dnote" value="27" onclick="playAudio(this.id);">D</button><!--
+            --><button type="button" id="Ds6" class="blackkey" value="28" onclick="playAudio(this.id);">D&#x266f;<br>E&#x266d;</button><!--
+            --><button type="button" id="E6" class="whitekey Enote" value="29" onclick="playAudio(this.id);">E</button><!--
+            --><button type="button" id="F6" class="whitekey Fnote" value="30" onclick="playAudio(this.id);">F</button><!--
+            --><button type="button" id="Fs6" class="blackkey" value="31" onclick="playAudio(this.id);">F&#x266f;<br>G&#x266d;</button><!--
+            --><button type="button" id="G6" class="whitekey Gnote" value="32" onclick="playAudio(this.id);">G</button><!--
+            --><button type="button" id="Gs6" class="blackkey" value="33" onclick="playAudio(this.id);">G&#x266f;<br>A&#x266d;</button><!--
+            --><button type="button" id="A6" class="whitekey Anote" value="34" onclick="playAudio(this.id);">A</button><!--
+            --><button type="button" id="As6" class="blackkey" value="35" onclick="playAudio(this.id);">A&#x266f;<br>B&#x266d;</button><!--
+            --><button type="button" id="B6" class="whitekey Bnote" value="36" onclick="playAudio(this.id);">B</button>
         </form>
 
         <script src= "piano_js.js" type= "text/javascript"></script>
