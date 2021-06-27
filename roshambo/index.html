@@ -1,0 +1,170 @@
+<!--********************************************************************************************
+Author: Madison Federin-Easley
+Date: 2/1/2021
+Revision no. 2.1
+*********************************************************************************************-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Rock Paper Scissors</title>
+        <style>
+            body {text-align: center;}
+            p {font-size: 24px;}
+            button {font-size: 18px; margin: 5px;}
+            .hideatfirst {display: none;}
+        </style>
+    </head>
+    <body>
+        <header class="rpsimages" id="zeheader">
+            <img src="rpshand.JPG" alt="Rock Paper Scissors" onmouseover="changeTopImage()" />
+        </header>
+        <div>
+            <h1 class="hideatfirst">Let's play Rock, Paper, Scissors!</h1>
+            <p class="hideatfirst" id="newtext">Pick from the buttons below:</p>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button><br class="brmove"><br class="brmove">
+            <button id="winner">End Game</button>
+            <p id="finalwinner"></p>
+        </div>
+        <footer class="rpsimages" id="zefooter">
+            <img src="rpshand.JPG" alt="Rock Paper Scissors" onmouseover="changeLowImage()" />
+        </footer>
+    </body>
+    <script src="jquery.js"></script>
+    <script>
+        // Added jQuery
+        $(document).ready(function() {
+            $(".hideatfirst").fadeIn(1000); // Fade in text
+        });
+        let totalCompWins = 0;
+        let totalUserWins = 0;
+
+        let getCompChoice = () => {
+            // Picks a random number from 1 to 3, floor rounds up because Math.random gives decimals
+            let choice = Math.floor((Math.random()*3 + 1));
+            if (choice === 1){
+                return "rock"
+            }
+            else if (choice === 2){
+                return "paper"
+            }
+            else if (choice === 3){
+                return "scissors"
+            }
+        }
+
+        // Picks rock button and on click, runs function
+        $("#rock").click(function(){
+            let userChoice = "rock";
+            // Runs function to get a random choice for computer
+            let compChoice = getCompChoice();
+            let gameStatus = "";
+
+            // Displays user choice and computer choice (variable)
+            gameStatus = `User chose rock and computer chose ${compChoice}.`; 
+
+            // If/Else checks for the winner
+            if (compChoice === "rock"){
+                gameStatus += "<br>It's a tie!";
+                document.getElementById("newtext").innerHTML = gameStatus;
+            }
+            else if (compChoice === "paper"){
+                gameStatus += "<br>You lose! Paper covers rock.";
+                document.getElementById("newtext").innerHTML = gameStatus;
+                // If computer won, adds to computer wins accumulator
+                totalCompWins++;
+            }
+            else if (compChoice === "scissors"){
+                gameStatus += "<br>You win! Rock crushes scissors.";
+                document.getElementById("newtext").innerHTML = gameStatus;
+                // If user wins, adds to user wins accumulator
+                totalUserWins++;
+            }
+        });
+
+        // Replaced addEventListener with jQuery for paper, scissors, and winner buttons
+        $("#paper").click(function(){
+            let userChoice = "paper";
+            let compChoice = getCompChoice();
+            let gameStatus = "";
+
+            gameStatus = `User chose paper and computer chose ${compChoice}.`; 
+
+            if (compChoice === "rock"){
+                gameStatus += "<br>You win! Paper covers rock";
+                document.getElementById("newtext").innerHTML = gameStatus;
+                totalUserWins++;
+            }
+            else if (compChoice === "paper"){
+                gameStatus += "<br>It's a tie!";
+                document.getElementById("newtext").innerHTML = gameStatus;
+            }
+            else if (compChoice === "scissors"){
+                gameStatus += "<br>You lose! Scissors cuts paper.";
+                document.getElementById("newtext").innerHTML = gameStatus;
+                totalCompWins++;
+            }
+        });
+
+        $("#scissors").click(function(){
+            let userChoice = "scissors";
+            let compChoice = getCompChoice();
+            let gameStatus = "";
+
+            gameStatus = `User chose scissors and computer chose ${compChoice}.`; 
+
+            if (compChoice === "rock"){
+                gameStatus += "<br>You lose! Rock crushes scissors.";
+                document.getElementById("newtext").innerHTML = gameStatus;
+                totalCompWins++;
+            }
+            else if (compChoice === "paper"){
+                gameStatus += "<br>You win! Scissors cuts paper.";
+                document.getElementById("newtext").innerHTML = gameStatus;
+                totalUserWins++;
+            }
+            else if (compChoice === "scissors"){
+                gameStatus += "<br>It's a tie!";
+                document.getElementById("newtext").innerHTML = gameStatus;
+            }
+        });
+
+        $("#winner").click(function(){
+            // If/Else checks whether computer or user has more wins and displays correct message
+            if (totalCompWins > totalUserWins){
+                document.getElementById("finalwinner").innerHTML = "The computer has won the Rock, Paper, Scissors tournament...";
+            }
+            else if (totalCompWins < totalUserWins){
+                document.getElementById("finalwinner").innerHTML = "You have won the Rock, Paper, Scissors tournament!!";
+            }
+            else {
+                document.getElementById("finalwinner").innerHTML = "There was no winner of the Rock, Paper, Scissors tournament...";
+            }
+            // More jQuery, hides all buttons, last game result
+            $("button, #newtext").fadeOut(1000);
+            // Adds a new button below to refresh page
+            $("<button onClick=\"location.reload();\">Start Over!</button>").insertAfter("#finalwinner");
+            $(".brmove").remove(); // Originally removed all <br>, now only removing those with class="remove"
+        });
+
+        const zehead = document.getElementById("zeheader");
+        const zefoot = document.getElementById("zefooter");
+        // Functions switch the images back and forth when user hovers over them
+        const changeTopImage = () => {
+            zehead.innerHTML = "<img src=\"rpsobject.jpg\" onmouseout=\"changeTopBack()\" />"
+        }
+        // Above function adds the below event into the HTML
+        const changeTopBack = () => {
+            zehead.innerHTML = "<img src=\"rpshand.jpg\" onmouseover=\"changeTopImage()\" />"
+        }
+        const changeLowImage = () => {
+            zefoot.innerHTML = "<img src=\"rpsobject.jpg\" onmouseout=\"changeLowBack()\" />"
+        }
+        const changeLowBack = () => {
+            zefoot.innerHTML = "<img src=\"rpshand.jpg\" onmouseover=\"changeLowImage()\" />"
+        }
+
+    </script>
+</html>
