@@ -1,0 +1,114 @@
+/**************************************************************************************************************
+Author: Madison Federin-Easley
+CSE-41207 Introduction to HTML and CSS
+Date: 1/23/2021
+Revision no. 3.0
+***************************************************************************************************************/
+
+/**************************************************************************************************************
+Styling for whole page
+***************************************************************************************************************/
+body {background-color: #A9ADB0; /* Added a background color to see the dimensions of each of the "boxes" */
+    font-size: 1em;} 
+.wrapper {font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 100%;
+    max-width: 1600px; /* Closest to my screen size */
+    margin: 0;
+    color: #333232;}
+header, footer, aside, nav {display: block;}
+
+/**************************************************************************************************************
+Styling for header
+***************************************************************************************************************/
+li a {font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+p {font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 90%;} /* Wanted a sans-serif font, but looked too large for the heading */
+h3 {text-decoration: underline;}
+:link {color: #282482}
+:visited {color: #0f8130}
+header.twelve-column {width: 98.75%;
+    padding-bottom: 12em; /* Creates space below hgroup that stays consistent */
+    background-color: #FFFFFF;
+    margin: 0.5%;
+    border-style: solid;} /* Added simple solid borders to make the different sections easier to distinguish */
+hgroup {float: left;
+    padding: 0 2%;}
+h2 {font-size: 120%;}
+.uppernav {padding: 0.5% 0;}
+.uppernav li {list-style-type: none;
+    list-style-position: inside;
+    float: left; /* Creates the six smaller horizontal boxes in the heading */
+    min-width: 7%;
+    margin: 1%;} /* The horizontal boxes take up about 1/9 of the page, which is 11.111%, approximately 10% min width and 1% margin */
+
+/**************************************************************************************************************
+Styling for aside
+***************************************************************************************************************/
+aside.four-column {background-color: #FFFFFF;
+        border-style: solid;
+        clear: left;
+        width: 30.5%; /* Slighly less than 1/3, 4 columns of a 12-column page */
+        overflow: auto;
+        float: left;
+        margin: 0.5%;}
+    aside h3 {padding-left: 3%;} /* So text isn't right against the border */
+    aside p {padding-left: 3%;
+        text-transform: capitalize;}
+
+/**************************************************************************************************************
+Styling for div/images
+***************************************************************************************************************/
+.eight-column {width: 66%; /*Approximately 2/3, 8 columns of a 12-column page */
+    overflow: auto;
+    text-align: center; 
+    margin: 1% auto; /* Lines 40-41 makes the right and left margins of the album div the same */
+    padding: 0.5%;}
+    .addedpics {background-color: #FFFFFF;
+        border-style: solid;}
+    .addedpics img {width: 45%; height: auto;
+        padding: 1% 0.5%;}
+
+/**************************************************************************************************************
+Styling for footer
+***************************************************************************************************************/
+footer.twelve-column {width: 99%;
+    background-color: #FFFFFF;
+    clear: both; /* Used float to create this webpage, future iterations would use display:grid */
+    text-align: center;
+    margin: 0 auto;
+    padding: 1% 0;
+    border-style: solid;}
+    .lowernav li {display: inline;
+        margin: 0 1em 0 0;}
+
+/**************************************************************************************************************
+Styling for smaller screen sizes
+***************************************************************************************************************/
+
+@media only screen and (max-width: 900px) { /* Nav bar at the top of the page was the first thing that didn't fit a smaller screen */
+.wrapper {text-align: center;
+    margin: 0 auto;}
+    hgroup {float: none; /* Made nav links stack vertically */
+        padding: 0;}
+    header.twelve-column {padding-bottom: 1em;}
+    nav ul {margin: 0; /* Centering links on header and footer */
+        padding: 0;}
+    .uppernav li {float: none;
+        margin: 0;
+        padding: 0;}
+}
+
+@media only screen and (max-width: 700px) { /* For smaller screen sizes */
+        hgroup {float: none;
+            padding: 0;} 
+        header.twelve-column {width: 99%;
+            margin: 0;}
+        aside.four-column {float: none; /* Made all sections stack vertically */
+                width: 99%; /*And take up the full screen (minus margins) */
+                padding: 0;
+                margin: 0.5% 0;}
+        .addedpics {width: 98%; 
+            margin: 0.5% auto;}
+        .addedpics img {width: 75%; height: auto; /* Pictures take up more of the screen instead of two images side by side */
+            padding: 1% 0;}
+}
