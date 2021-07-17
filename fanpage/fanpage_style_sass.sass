@@ -52,4 +52,109 @@ p
 h3
     text-decoration: underline
 
-/* Start at header.twelve-column
+header.twelve-column
+    width: 98.75%
+    padding-bottom: 12em
+    background-color: $background-color-2
+    margin: 0.5%
+    border-style: solid
+
+hgroup
+    float: left
+    padding: 0 2%
+
+h2
+    font-size: 120%
+
+.uppernav
+    padding: 0.5% 0
+    li
+        list-style: none inside
+        float: left
+        min-width: 7%
+        margin: 1%
+
+aside.four-column
+    background-color: $background-color-2
+    border-style: solid
+    clear: left
+    width: 30.5%
+    overflow: auto
+    float: left
+    margin: 0.5%
+
+.eight-column
+    width: 66%
+    overflow: auto
+    text-align: center
+    margin: 1% auto
+    padding: 0.5%
+
+.addedpics
+    background-color: $background-color-2
+    border-style: solid
+    img
+        width: 45%
+        height: auto
+        padding: 1% 0.5%
+
+footer.twelve-column
+    width: 99%
+    background-color: $background-color-2
+    clear: both
+    text-align: center
+    margin: 0 auto
+    padding: 1% 0
+    border-style: solid
+
+.lowernav
+    li
+        display: inline
+        margin: 0 1em 0 0
+
+
+@media only screen and (max-width: 900px)
+    .wrapper
+        text-align: center
+        margin: 0 auto
+
+    hgroup
+        float: none
+        padding: 0
+
+    header.twelve-column
+        padding-bottom: 1em
+
+    nav
+        ul
+            margin: 0
+            padding: 0
+
+    .uppernav
+        li
+            float: none
+            margin: 0
+            padding: 0
+
+@media only screen and (max-width: 700px)
+    .hgroup
+        float: none
+        padding: 0
+
+    header.twelve-column
+        width: 99%
+        margin: 0
+    
+    aside.four-column
+        float: none
+        width: 99%
+        padding: 0
+        margin: 0.5% 0
+    
+    .addedpics
+        width: 98%
+        margin: 0.5% auto
+        img
+            width: 75%
+            padding: 1% 0
+            
