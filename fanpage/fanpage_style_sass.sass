@@ -16,6 +16,9 @@ $font-family-3: Verdana, Geneva, Tahoma, sans-serif
 $background-color-1: #A9ADB0
 $background-color-2: #FFFFFF
 
+%asidelf
+    padding-left: 3%
+
 body
     background-color: $background-color-1
     font-size: 1em
@@ -25,6 +28,7 @@ body
     width: 100%
     max-width: 1600px
     margin: 0
+    padding: 0
     color: $color1
 
 header, footer, nav
@@ -33,9 +37,9 @@ header, footer, nav
 aside
     display: block
     h3
-        padding-left: 3%
+        @extend %asidelf
     p
-        padding-left: 3%
+        @extend %asidelf
 
 li
     a
@@ -56,14 +60,18 @@ header.twelve-column
     width: 98.75%
     padding-bottom: 12em
     background-color: $background-color-2
-    margin: 0.5%
+    margin: 0.5% auto
     border-style: solid
 
 hgroup
     float: left
-    padding: 0 2%
+    padding: 0 0.5%
+
+h1
+    margin-left: 1%
 
 h2
+    margin-left: 1%
     font-size: 120%
 
 .uppernav
@@ -157,4 +165,4 @@ footer.twelve-column
         img
             width: 75%
             padding: 1% 0
-            
+

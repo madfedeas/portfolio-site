@@ -4,6 +4,10 @@
  *  Date: 7/14/2021
  *  Revision no. 1.0 (Formerly CSS stylesheet) */
 /************************************************************************************************************** */
+aside p, aside h3 {
+  padding-left: 3%;
+}
+
 body {
   background-color: #A9ADB0;
   font-size: 1em;
@@ -14,6 +18,7 @@ body {
   width: 100%;
   max-width: 1600px;
   margin: 0;
+  padding: 0;
   color: #333232;
 }
 
@@ -24,13 +29,6 @@ header, footer, nav {
 aside {
   display: block;
 }
-aside h3 {
-  padding-left: 3%;
-}
-aside p {
-  padding-left: 3%;
-}
-
 li a {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
@@ -54,16 +52,21 @@ header.twelve-column {
   width: 98.75%;
   padding-bottom: 12em;
   background-color: #FFFFFF;
-  margin: 0.5%;
+  margin: 0.5% auto;
   border-style: solid;
 }
 
 hgroup {
   float: left;
-  padding: 0 2%;
+  padding: 0 0.5%;
+}
+
+h1 {
+  margin-left: 1%;
 }
 
 h2 {
+  margin-left: 1%;
   font-size: 120%;
 }
 
